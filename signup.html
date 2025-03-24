@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup/Login |TutorConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+
+
+        <h2>Join as a Student or Tutor</h2>
+        <form id="signup-form">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <br> <br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <br> <br>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <img src="TTW.jpg" alt="TutorConnect Logo" id="logo" style="margin-left:700px;  width:200px;  margin-top:-95px;">
+
+    <script>
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPassword", password);
+
+            alert("Account created! Now log in.");
+            window.location.href = "login.html";
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | TutorConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .box {
+            background-image: url(TTW.jpg);
+            background-position: center;
+            background-size: cover;
+            padding: 100px;
+        }
+        
+        .box ::before {
+            content: '';
+            opacity: 0.3;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+
+
+
+    <header>
+        <h2>TutorConnect</h2>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home |</a></li>
+                <li><a href="signup.html">Sign Up |</a></li>
+                <li><a href="login.html">Login |</a></li>
+                <li><a href="tutors.html">Find a Tutor |</a></li>
+                <li><a href="bookings.html">My Bookings |</a></li>
+                <li><a href="about.html" id="about">About</a></li>
+                <li><a href="tutor-profile.html" id="tutor-profile">tutors profile |</a></li>
+                <li><a href="payment.html" id="payment">payment |</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--This is the welcome section, meaning the first thing to see after the index.html -->
+
+
+    <section class="welcome-section">
+
+
+        <img src="" alt="TutorConnect Logo" id="logo" width="150px" height="200px">
+        <div class="box">
+
+            <h2>Welcome, <span id="user-name"></span></h2>
+
+            <p>Find the best tutors on campus to help you succeed.</p>
+
+            <a href="tutors.html" class="btn">Find Tutors</a>
+
+        </div>
+    </section>
+
+
+
+
+
+
+    <script>
+        // Redirect to login if not authenticated
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "login.html";
+        }
+
+        // Display logged-in user's email as name (for now)
+        document.getElementById("user-name").innerText = localStorage.getItem("userEmail");
+
+        // Logout functionality
+        document.getElementById("logout").addEventListener("click", function() {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        });
+    </script>
+
+    <footer>
+        <marquee direction="right" behavior="scroll">
+            <p>&copy; 2025 TutorConnect. All rights reserved.</p>
+        </marquee>
+    </footer>
+</body>
+
+</html>
