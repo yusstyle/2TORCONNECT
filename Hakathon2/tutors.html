@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Tutors | TutorConnect</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        img {
+            border: 3px solid rgb(7, 7, 7);
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <header>
+
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Home |</a></li>
+                <li><a href="tutors.html">Find Tutors |</a></li>
+                <li><a href="bookings.html">My Bookings |</a></li>
+                <li><a href="profile.html">My Profile |</a></li>
+                <li><a href="profile.html" id="logout">Logout |</a></li>
+                <li><a href="tutor-profile.html" id="tutor-profile">tutors profile |</a></li>
+                <li><a href="about.html" id="about">About</a></li>
+                <li><a href="payment.html" id="payment">payment |</a></li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+
+    <section class="tutors-section">
+        <img src="TTW.jpg" alt="TutorConnect Logo" id="logo" style="margin-left:00px;  width:200px;  margin-top:-25px;">
+
+        <h2>Available Tutors</h2>
+        <label for="gender-filter">Filter by Gender:</label>
+        <select id="gender-filter">
+            <option value="all">All</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br><br>
+        <div id="tutors-list">
+            <!-- Tutors will be loaded here dynamically -->
+        </div>
+    </section>
+
+
+
+    <script>
+        let tutors = [{
+            name: "Aliyu Yusuf",
+            subject: "Mathematics",
+            gender: "male",
+            rating: 4.5,
+            available: true,
+            vip: false
+        }, {
+            name: "Maryam Bello",
+            subject: "Physics",
+            gender: "female",
+            rating: 4.8,
+            available: true,
+            vip: true
+        }, {
+            name: "John Doe",
+            subject: "Programming",
+            gender: "male",
+            rating: 4.7,
+            available: true,
+            vip: false
+        }, {
+            name: "Aisha Umar",
+            subject: "Chemistry",
+            gender: "female",
+            rating: 4.2,
+            available: true,
+            vip: true
+        }];
+
+        function loadTutors(filter = "all") {
+            let tutorsList = document.getElementById("tutors-list");
+            tutorsList.innerHTML = "";
+
+            let filteredTutors = tutors.filter(tutor => filter === "all" || tutor.gender === filter);
+            filteredTutors.forEach(tutor => {
+                let tutorCard = document.createElement("div");
+                tutorCard.className = "tutor-card";
+                tutorCard.innerHTML = `
+                <h3>${tutor.name}</h3>
+                <p>Subject: ${tutor.subject}</p>
+                <p>Gender: ${tutor.gender}</p>
+                <p>Rating: ⭐${tutor.rating}</p>
+                <p>Status: ${tutor.available ? "✅ Available" : "❌ Not Available"}</p>
+                <p>Type: ${tutor.vip ? "🔥 VIP" : "Free"}</p>
+                <button ${tutor.available ? "" : "disabled"} onclick="bookTutor('${tutor.name}', ${tutor.vip})">
+                    ${tutor.vip ? "Book VIP Session (#1000)" : "Book Free Session"}
+                </button>
+            `;
+                tutorsList.appendChild(tutorCard);
+            });
+        }
+
+        function bookTutor(name, isVip) {
+            if (isVip) {
+                let confirmPayment = confirm(`VIP booking requires a #1000 payment. Proceed?`);
+                if (!confirmPayment) return;
+            }
+
+            let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+            let newBooking = {
+                name,
+                type: isVip ? "VIP" : "Free"
+            };
+            bookings.push(newBooking);
+            localStorage.setItem("bookings", JSON.stringify(bookings));
+
+            alert(`You have booked a ${isVip ? "VIP" : "Free"} session with ${name}.`);
+        }
+
+        document.getElementById("gender-filter").addEventListener("change", function() {
+            loadTutors(this.value);
+        });
+
+        loadTutors();
+    </script>
+
+    <footer>
+        <marquee direction="right" behavior="scroll">
+            <p>&copy; 2025 TutorConnect. All rights reserved.</p>
+        </marquee>
+    </footer>
+
+</body>
+
+
+</html>

@@ -1,0 +1,343 @@
+/* Global Styles */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #2D1B3D, #7C5A91);
+    color: #fff;
+}
+
+
+/* Header */
+
+header {
+    background: rgba(59, 44, 75, 0.8);
+    padding: -3px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.info {
+    margin: 50px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    /* Adjust height */
+    background: rgb(50, 34, 59);
+    color: rgb(255, 255, 255);
+    z-index: 1000;
+    /* Ensures it stays above everything */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 9px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    margin: 0;
+    padding-top: 70px;
+    /* Pushes the content down to avoid overlap */
+}
+
+body {
+    padding-top: 60px;
+    /* Pushes the content below the navbar */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 4px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #6e35ae;
+}
+
+#logo {
+    animation: logo 2s infinite;
+    animation-play-state: running;
+    float: right;
+    width: 50%;
+    margin-top: -12%;
+}
+
+
+/* Hero Section */
+
+.hero {
+    text-align: left;
+    padding: 100px;
+    margin-top: 80px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #c69ef3;
+    color: #222;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background 0.3s ease;
+    box-shadow: #222 5px 1px px;
+}
+
+.btn:hover {
+    background: #6e35ae;
+}
+
+
+/* How It Works Section */
+
+.how-it-works {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 40px auto;
+    border-radius: 10px;
+    width: 80%;
+}
+
+.how-it-works h2 {
+    font-size: 2rem;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.step:hover {
+    transform: scale(1.05);
+}
+
+.step h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+
+/* Footer */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(to bottom, #2D1B3D, #7C5A91);
+    margin-top: 50px;
+}
+
+.auth-container p a {
+    color: #475a72;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth-container p a:hover {
+    text-decoration: underline;
+}
+
+
+/* Welcome Section */
+
+.welcome-section {
+    text-align: center;
+    margin: 80px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    width: 80%;
+    border-radius: 10px;
+}
+
+.tutors-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.tutor-card,
+#payment,
+.profile-section,
+#profile-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tutor-card button {
+    margin-top: 10px;
+}
+
+.profile-container,
+.booking-container,
+.auth-container,
+.tutors-section {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    text-align: center;
+    border-radius: 10px;
+}
+
+.booking-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.booking-container label {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.booking-container input,
+select {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.booking-container button,
+.auth-container {
+    margin-top: 15px;
+    background: #6e35ae;
+    color: #222;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.booking-container button:hover {
+    background: #6e35ae;
+}
+
+.profile-section {
+    text-align: center;
+    margin: 20px auto;
+    width: 50%;
+}
+
+.profile-card,
+.info {
+    background: #6e35af;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    p,
+    h3 {
+        background-color: #3b2458;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+        padding: 10px;
+        text-overflow: inherit;
+    }
+}
+
+.profile-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #66389e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #3b2458;
+}
+
+.tutor-card {
+    padding: 5%;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.auth-container {
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/*for the animation of the logo*/
+
+@keyframes logo {
+    0% {
+        transform: translate3d(50px 50px 0px);
+        animation-timing-function: ease-in;
+    }
+    60% {
+        transform: translate3d(50px 70px 0px);
+        animation-timing-function: ease-out;
+    }
+    100% {
+        transform: translate3d(50px 50px 0px);
+    }
+}
+
+form {
+    background: #2D1B3D;
+}

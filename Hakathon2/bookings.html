@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Bookings | TutorConnect</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+
+
+    <header>
+        <h2>TutorConnect</h2>
+        <nav>
+
+            <!--Our Links -->
+            <ul>
+                <li><a href="dashboard.html">Home |</a></li>
+                <li><a href="tutors.html">Find Tutors |</a></li>
+                <li><a href="bookings.html">My Bookings |</a></li>
+                <li><a href="signup.html" id="logout">Logout |</a></li>
+                <li><a href="about.html" id="about">About</a></li>
+                <li><a href="tutor-profile.html" id="tutor-profile">tutors profile |</a></li>
+                <li><a href="payment.html" id="payment">payment |</a></li>
+                <li><a href="session-booking.html">Book A Session |</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <section>
+
+
+        <img src="TTW.jpg" alt="TutorConnect Logo" id="logo" style="margin-left:00px;  width:150px;  margin-top:-25px; background: transparent;">
+
+        <h2>My Bookings</h2>
+
+        <div id="bookings-list">
+
+            <!-- Booked sessions will be displayed here -->
+        </div>
+
+
+    </section>
+
+
+
+    <!-- This scrips is to show the booking list of the user-->
+    <script>
+        function loadBookings() {
+            let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+            let bookingsList = document.getElementById("bookings-list");
+            bookingsList.innerHTML = "";
+        }
+        if (bookings.length === 0) {
+            bookingsList.innerHTML = "<p>No bookings yet.</p>";
+            return;
+        }
+
+        bookings.forEach((booking, index) => {
+            let bookingCard = document.createElement("div");
+            bookingCard.className = "booking-card";
+            bookingCard.innerHTML = `
+                <h3>${booking.name}</h3>
+                <p>Type: ${booking.type}</p>
+                <button onclick="cancelBooking(${index})">Cancel</button>
+            `;
+            bookingsList.appendChild(bookingCard);
+        });
+
+
+        function cancelBooking(index) {
+            let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+            bookings.splice(index, 1);
+            localStorage.setItem("bookings", JSON.stringify(bookings));
+            loadBookings();
+        }
+
+        loadBookings();
+    </script>
+
+    <footer>
+        <marquee direction="alternate" behavior="alternate">
+            <p>&copy; 2025 TutorConnect. All rights reserved.</p>
+        </marquee>
+    </footer>
+
+</body>
+
+</html>

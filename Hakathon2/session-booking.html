@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book a Session | Campus Tutoring Platform</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+
+    <header>
+
+        <h2>Book a Tutoring Session</h2>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Home |</a></li>
+
+                <li><a href="tutors.html">Find Tutors |</a></li>
+
+                <li><a href="#">Logout |</a></li>
+
+                <li><a href="about.html" id="about">About</a></li>
+
+                <li><a href="tutor-profile.html" id="tutor-profile">tutors profile |</a></li>
+
+                <li><a href="payment.html" id="payment">payment |</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <section class="booking-container">
+
+
+        <h2>Book a Session with John Doe</h2>
+
+        <form action="#" method="post">
+
+            <label for="date">Select Date</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Select Time</label>
+            <input type="time" id="time" name="time" required>
+
+            <label for="mode">Mode of Tutoring</label>
+            <select id="mode" name="mode">
+
+                
+                <option value="Group[physical]">Group Tutoring</option>
+                <option value="One-On-One[physical]">One-on-One Tutoring</option>
+                <option value="online">Online Tutoring</option>
+               
+            </select>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </section>
+
+    <footer>
+        <marquee direction="right" behavior="scroll"> <p>&copy; 2025 TutorConnect. All rights reserved.</p></marquee>
+     </footer>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Profile | TutorConnect</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h2>TutorConnect</h2>
+
+        <nav>
+
+            <ul>
+
+                <li><a href="dashboard.html">Home |</a></li>
+
+                <li><a href="tutors.html">Find Tutors |</a></li>
+
+                <li><a href="profile.html">My Profile |</a></li>
+
+                <li><a href="#" id="logout">Logout |</a></li>
+
+                <li><a href="about.html" id="about">About</a></li>
+
+                <li><a href="tutor-profile.html" id="tutor-profile">tutors profile |</a></li>
+
+                <li><a href="payment.html" id="payment">payment |</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <!--This will be our profile session -->
+
+
+    <section class="profile-section">
+
+        <img src="TTW.jpg" alt="TutorConnect Logo" id="logo" style="margin-left:00px;  width:150px;  margin-top:-25px;">
+
+        <h2>User Profile</h2>
+
+        <div class="profile-card">
+
+            <img id="profile-pic" src="TTW.jpg" alt="Profile Picture">
+
+            <br>
+            <br>
+            <input type="file" id="upload-pic" accept="image/*">
+
+            <h3 id="user-name">[User Name]</h3>
+
+
+            <br><br>
+            <p>Email: <span id="user-email"></span></p>
+
+            <br><br>
+            <p>Role: <span id="user-role"></span></p>
+
+            <br><br>
+            <button onclick="editProfile()">Edit Profile</button>
+
+            <br><br>
+        </div>
+
+
+        <!-- this is the edit profil form-->
+
+        <div id="edit-profile-form" style="display: none;">
+
+            <h3>Edit Profile</h3>
+
+            <br><br>
+            <label for="edit-name">Name:</label>
+
+            <input type="text" id="edit-name">
+
+            <br><br>
+            <label for="edit-role">Role:</label>
+
+            <select id="edit-role">
+                <option value="student">Student</option>
+
+                <option value="tutor">Tutor</option>
+
+            </select>
+            <br><br>
+            <button onclick="saveProfile()">Save Changes</button>
+
+        </div>
+
+    </section>
+
+    <script src="profile.js"></script>
+
+
+
+    <footer>
+        <marquee direction="right" behavior="scroll">
+            <p>&copy; 2025 TutorConnect. All rights reserved.</p>
+        </marquee>
+    </footer>
+</body>
+
+</html>

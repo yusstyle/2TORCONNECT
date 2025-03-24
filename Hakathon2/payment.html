@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Make Payment | TutorConnect</title>
+
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        img {
+            border: 3px solid black;
+            border-radius: 10px;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+
+    <img src="TTW.jpg" alt="TutorConnect Logo" id="logo">
+
+    <section id="payment">
+
+        <h2>Make a Payment</h2>
+
+        <p>Click the button below to pay for your tutoring session.</p>
+
+        <button onclick="makePayment()">Pay Now</button>
+
+    </section>
+
+
+
+    <!--this is the script for making payments for each tutoring sessions-->
+    <script>
+        function makePayment() {
+            FlutterwaveCheckout({
+                public_key: "FLWPUBK_TEST-2faa72c766ba7e462d699b670e28cf13-X", // Test Public Key
+                tx_ref: "TX_" + Math.floor((Math.random() * 1000000000) + 1), // Unique transaction reference
+                amount: 500, // Amount to pay (test)
+                currency: "NGN",
+                payment_options: "card, ussd, banktransfer",
+                customer: {
+                    email: "test@example.com",
+                    phone_number: "08100000000",
+                    name: "Test User",
+                },
+                callback: function(data) {
+                    console.log(data);
+                    alert("Payment Successful! Transaction ID: " + data.transaction_id);
+                },
+                onclose: function() {
+                    alert("Transaction was not completed.");
+                }
+            });
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2025 TutorConnect. All rights reserved.</p>
+
+    </footer>
+</body>
+
+</html>
